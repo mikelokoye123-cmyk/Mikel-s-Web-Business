@@ -11,6 +11,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname)); // Serve frontend files from the root directory
 
+// Root route to serve index.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 // Simple in-memory storage for messages
 const messages = [];
 
@@ -50,7 +55,13 @@ app.get('/messages', (req, res) => {
     res.json(messages);
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
-    console.log('Frontend is served from the root directory.');
-});
+// Only start listening if not running on Vercel (serverless)
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`Server is running at http://localhost:${PORT}`);
+    });
+}
+
+// Export the app for Vercel
+module.exports = app;
+
