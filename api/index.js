@@ -9,11 +9,11 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '..', 'public'))); 
+app.use(express.static(path.join(__dirname, '..'))); 
 
-// Root route to serve index.html from public folder
+// Root route to serve index.html from root folder
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
 // Simple in-memory storage for messages
