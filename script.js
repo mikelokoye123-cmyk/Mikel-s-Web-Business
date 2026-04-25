@@ -126,6 +126,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeChatbot = document.getElementById('close-chatbot');
     const chatbotMessages = document.getElementById('chatbot-messages');
     const suggestionBtns = document.querySelectorAll('.suggestion-btn');
+    const chatInput = document.getElementById('chat-input');
+    const sendChat = document.getElementById('send-chat');
+
+    const responses = {
+        "Who is Mikel?": "Mikel is an 18 year old, professional web developer and designer specializing in high-performance websites for businesses.",
+        "Is Mikel qualified?": "Mikel has extensive experience building custom platforms, dashboards, and landing pages with a focus on modern UX and clean code. He spent 2 years learning basic programming languages and 1 year learning advanced programming languages",
+        "Can you create both Frontend and Backend?": "Yes! Mikel provides full-stack services, meaning he can handle everything from the visual design (Frontend) to the server logic and databases (Backend)."
+    };
 
     chatbotButton.addEventListener('click', () => {
         chatbotWindow.classList.toggle('active');
@@ -135,30 +143,56 @@ document.addEventListener('DOMContentLoaded', () => {
         chatbotWindow.classList.remove('active');
     });
 
-    const responses = {
-        "Who is Mikel?": "Mikel is an 18 year old, professional web developer and designer specializing in high-performance websites for businesses.",
-        "Is Mikel qualified?": "Mikel has extensive experience building custom platforms, dashboards, and landing pages with a focus on modern UX and clean code. He spent 2 years learning basic programming languages and 1 year learning advanced programming languages",
-        "Can you create both Frontend and Backend?": "Yes! Mikel provides full-stack services, meaning he can handle everything from the visual design (Frontend) to the server logic and databases (Backend)."
+    const handleChat = (message) => {
+        if (!message) return;
+
+        const userMsg = document.createElement('div');
+        userMsg.className = 'message user';
+        userMsg.textContent = message;
+        chatbotMessages.appendChild(userMsg);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+        const lowerMsg = message.toLowerCase();
+        let botResponse = "";
+
+        if (responses[message]) {
+            botResponse = responses[message];
+        } else if (lowerMsg.includes('price') || lowerMsg.includes('cost') || lowerMsg.includes('how much') || lowerMsg.includes('charge')) {
+            botResponse = "Pricing depends on the complexity of your project! To get an accurate quote, please DM Mikel on WhatsApp or fill out the contact form below.";
+        } else if (lowerMsg.includes('how long') || lowerMsg.includes('duration') || lowerMsg.includes('days') || lowerMsg.includes('finish') || lowerMsg.includes('time')) {
+            botResponse = "It depends on the scope of the project, but I typically deliver a high-quality site in a minimum of 2 days and a maximum of 6 days.";
+        } else if (lowerMsg.includes('help') || lowerMsg.includes('services') || lowerMsg.includes('what can you do')) {
+            botResponse = "Mikel can help you with modern web design, full-stack development (frontend & backend), and high-converting landing pages. What kind of project do you have in mind?";
+        } else {
+            botResponse = "That's a great question! For specific details like that, it's best to fill out Mikel's contact form below or send him a WhatsApp message. He'll get back to you personally!";
+        }
+
+        setTimeout(() => {
+            const botMsg = document.createElement('div');
+            botMsg.className = 'message bot';
+            botMsg.textContent = botResponse;
+            chatbotMessages.appendChild(botMsg);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }, 600);
     };
 
     suggestionBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            const question = btn.getAttribute('data-question');
-
-            const userMsg = document.createElement('div');
-            userMsg.className = 'message user';
-            userMsg.textContent = question;
-            chatbotMessages.appendChild(userMsg);
-
-            setTimeout(() => {
-                const botMsg = document.createElement('div');
-                botMsg.className = 'message bot';
-                botMsg.textContent = responses[question] || "That's a great question! Mikel can definitely help you with that.";
-                chatbotMessages.appendChild(botMsg);
-                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-            }, 600);
-
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            handleChat(btn.getAttribute('data-question'));
         });
+    });
+
+    sendChat.addEventListener('click', () => {
+        const message = chatInput.value.trim();
+        handleChat(message);
+        chatInput.value = '';
+    });
+
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const message = chatInput.value.trim();
+            handleChat(message);
+            chatInput.value = '';
+        }
     });
 });
