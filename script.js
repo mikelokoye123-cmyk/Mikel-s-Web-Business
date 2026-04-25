@@ -98,26 +98,27 @@ document.addEventListener('DOMContentLoaded', () => {
             message: document.getElementById('message').value
         };
 
-        // Use relative path for deployment, or absolute for local dev
-        const API_URL = '/api/contact';
+        // Formspree ID for email notifications
+        const FORMSPREE_ID = 'xzdywdqd'; 
+        const API_URL = `https://formspree.io/f/${FORMSPREE_ID}`;
 
         try {
             const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: {
+                    'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(formData)
             });
 
-            const result = await response.json();
-
             if (response.ok) {
-                formStatus.textContent = result.message;
+                formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
                 formStatus.classList.add('status-success');
                 contactForm.reset();
             } else {
-                formStatus.textContent = result.message || 'Something went wrong. Please try again.';
+                const result = await response.json();
+                formStatus.textContent = result.errors ? result.errors[0].message : 'Something went wrong. Please try again.';
                 formStatus.classList.add('status-error');
             }
         } catch (error) {
