@@ -159,7 +159,8 @@ nav {
 
 .btn-primary {
     background: linear-gradient(90deg, var(--primary), var(--secondary));
-    color: white;
+    color: #ffffff !important;
+    font-weight: 700;
     box-shadow: 0 10px 20px var(--primary-glow);
 }
 
