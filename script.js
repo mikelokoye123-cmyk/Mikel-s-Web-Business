@@ -150,30 +150,38 @@ document.addEventListener('DOMContentLoaded', () => {
         userMsg.className = 'message user';
         userMsg.textContent = message;
         chatbotMessages.appendChild(userMsg);
+        
+        const thinkingMsg = document.createElement('div');
+        thinkingMsg.className = 'message bot thinking';
+        thinkingMsg.innerHTML = 'Mikel AI is thinking<span>.</span><span>.</span><span>.</span>';
+        chatbotMessages.appendChild(thinkingMsg);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 
         const lowerMsg = message.toLowerCase();
-        let botResponse = "";
-
-        if (responses[message]) {
-            botResponse = responses[message];
-        } else if (lowerMsg.includes('price') || lowerMsg.includes('cost') || lowerMsg.includes('how much') || lowerMsg.includes('charge')) {
-            botResponse = "Pricing depends on the complexity of your project! To get an accurate quote, please DM Mikel on WhatsApp or fill out the contact form below.";
-        } else if (lowerMsg.includes('how long') || lowerMsg.includes('duration') || lowerMsg.includes('days') || lowerMsg.includes('finish') || lowerMsg.includes('time')) {
-            botResponse = "It depends on the scope of the project, but I typically deliver a high-quality site in a minimum of 2 days and a maximum of 6 days.";
-        } else if (lowerMsg.includes('help') || lowerMsg.includes('services') || lowerMsg.includes('what can you do')) {
-            botResponse = "Mikel can help you with modern web design, full-stack development (frontend & backend), and high-converting landing pages. What kind of project do you have in mind?";
-        } else {
-            botResponse = "That's a great question! For specific details like that, it's best to fill out Mikel's contact form below or send him a WhatsApp message. He'll get back to you personally!";
-        }
 
         setTimeout(() => {
+            chatbotMessages.removeChild(thinkingMsg);
+            
             const botMsg = document.createElement('div');
             botMsg.className = 'message bot';
-            botMsg.textContent = botResponse;
+            
+            if (responses[message]) {
+                botMsg.textContent = responses[message];
+            } else if (lowerMsg.includes('price') || lowerMsg.includes('cost') || lowerMsg.includes('how much') || lowerMsg.includes('charge')) {
+                botMsg.textContent = "Pricing depends on the complexity of your project! To get an accurate quote, please DM Mikel on WhatsApp or fill out the contact form below.";
+            } else if (lowerMsg.includes('how long') || lowerMsg.includes('duration') || lowerMsg.includes('days') || lowerMsg.includes('finish') || lowerMsg.includes('time')) {
+                botMsg.textContent = "It depends on the scope of the project, but I typically deliver a high-quality site in a minimum of 2 days and a maximum of 6 days.";
+            } else if (lowerMsg.includes('ai ') || lowerMsg.includes('robot') || lowerMsg.includes('bot') || lowerMsg.includes('human')) {
+                botMsg.textContent = "This site was built using a custom stack of modern HTML5, CSS3, and high-performance JavaScript. Mikel focuses on results, not just the tools used to get there.";
+            } else if (lowerMsg.includes('help') || lowerMsg.includes('services') || lowerMsg.includes('what can you do')) {
+                botMsg.textContent = "Mikel can help you with modern web design, full-stack development (frontend & backend), and high-converting landing pages. What kind of project do you have in mind?";
+            } else {
+                botMsg.textContent = "That's a great question! For specific details like that, it's best to fill out Mikel's contact form below or send him a WhatsApp message. He'll get back to you personally!";
+            }
+            
             chatbotMessages.appendChild(botMsg);
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        }, 600);
+        }, 1500);
     };
 
     suggestionBtns.forEach(btn => {
