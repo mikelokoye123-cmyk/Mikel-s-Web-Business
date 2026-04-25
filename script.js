@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
             message: document.getElementById('message').value
         };
 
-        const FORMSPREE_ID = 'xzdywdqd'; 
+        const FORMSPREE_ID = 'xzdywdqd';
         const API_URL = `https://formspree.io/f/${FORMSPREE_ID}`;
 
         try {
@@ -136,15 +136,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const responses = {
-        "Who is Mikel?": "Mikel is a professional web developer and designer specializing in high-performance websites for businesses.",
-        "Is Mikel qualified?": "Mikel has extensive experience building custom platforms, dashboards, and landing pages with a focus on modern UX and clean code.",
+        "Who is Mikel?": "Mikel is an 18 year old, professional web developer and designer specializing in high-performance websites for businesses.",
+        "Is Mikel qualified?": "Mikel has extensive experience building custom platforms, dashboards, and landing pages with a focus on modern UX and clean code. He spent 2 years learning basic programming languages and 1 year learning advanced programming languages",
         "Can you create both Frontend and Backend?": "Yes! Mikel provides full-stack services, meaning he can handle everything from the visual design (Frontend) to the server logic and databases (Backend)."
     };
 
     suggestionBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const question = btn.getAttribute('data-question');
-            
+
             const userMsg = document.createElement('div');
             userMsg.className = 'message user';
             userMsg.textContent = question;
