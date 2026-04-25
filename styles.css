@@ -1,5 +1,4 @@
 :root {
-    /* Color Palette - Dark Mode (Default) */
     --primary: #6366f1;
     --primary-glow: rgba(99, 102, 241, 0.4);
     --secondary: #a855f7;
@@ -14,7 +13,6 @@
     --container-width: 1200px;
 }
 
-/* Light Mode Variables */
 [data-theme="light"] {
     --bg-main: #f8fafc;
     --bg-secondary: #ffffff;
@@ -50,7 +48,6 @@ body {
     padding: 0 2rem;
 }
 
-/* Typography */
 h1, h2, h3 {
     font-weight: 700;
     line-height: 1.2;
@@ -63,7 +60,6 @@ span {
     -webkit-text-fill-color: transparent;
 }
 
-/* Header & Nav */
 header {
     position: fixed;
     top: 0;
@@ -142,7 +138,6 @@ nav {
     cursor: pointer;
 }
 
-/* Buttons */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -184,7 +179,6 @@ nav {
     transform: translateY(-3px);
 }
 
-/* Hero Section */
 .hero {
     padding: 12rem 0 6rem;
     position: relative;
@@ -261,7 +255,6 @@ nav {
 .keyword { color: #c678dd; }
 .string { color: #98c379; }
 
-/* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
     bottom: 2rem;
@@ -295,7 +288,6 @@ nav {
     100% { transform: translate(-50%, 20px); opacity: 0; }
 }
 
-/* Sections General */
 section {
     padding: 8rem 0;
 }
@@ -315,7 +307,6 @@ section {
     font-size: 1.1rem;
 }
 
-/* Services */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -351,7 +342,6 @@ section {
     color: var(--text-muted);
 }
 
-/* Portfolio */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -401,7 +391,6 @@ section {
     transform: scale(1.1);
 }
 
-/* Contact */
 .contact-card {
     background: var(--bg-secondary);
     border-radius: 30px;
@@ -489,7 +478,6 @@ section {
 .status-success { color: #10b981; }
 .status-error { color: #ef4444; }
 
-/* Footer */
 footer {
     padding: 4rem 0;
     border-top: 1px solid var(--border);
@@ -524,7 +512,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Animations */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -536,7 +523,6 @@ footer {
     transform: translateY(0);
 }
 
-/* Mobile Responsive */
 @media (max-width: 992px) {
     .container { padding: 0 1.5rem; }
     .hero-grid, .contact-card { grid-template-columns: 1fr; }

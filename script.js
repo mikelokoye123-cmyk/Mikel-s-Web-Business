@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Theme Toggle
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
     const icon = themeToggle.querySelector('i');
 
-    // Check for saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
         body.setAttribute('data-theme', 'light');
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     const navLinksItems = document.querySelectorAll('.nav-links a');
@@ -38,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Close menu when a link is clicked
     navLinksItems.forEach(item => {
         item.addEventListener('click', () => {
             navLinks.classList.remove('active');
@@ -46,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Header Scroll Effect
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -56,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Reveal Animations on Scroll
     const observerOptions = {
         threshold: 0.1
     };
@@ -70,14 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    // Also add reveal to sections for a staggered effect
     document.querySelectorAll('.service-card, .portfolio-item').forEach((el, index) => {
         el.style.transitionDelay = `${index * 0.1}s`;
         el.classList.add('reveal');
         observer.observe(el);
     });
 
-    // Contact Form Submission
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
     const submitBtn = document.getElementById('submit-btn');
@@ -85,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Disable button and show loading state
         submitBtn.disabled = true;
         const originalBtnText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
@@ -98,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
             message: document.getElementById('message').value
         };
 
-        // Formspree ID for email notifications
         const FORMSPREE_ID = 'xzdywdqd'; 
         const API_URL = `https://formspree.io/f/${FORMSPREE_ID}`;
 
