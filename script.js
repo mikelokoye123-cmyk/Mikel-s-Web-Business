@@ -120,4 +120,45 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.innerHTML = originalBtnText;
         }
     });
+
+    const chatbotButton = document.getElementById('chatbot-button');
+    const chatbotWindow = document.getElementById('chatbot-window');
+    const closeChatbot = document.getElementById('close-chatbot');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+    const suggestionBtns = document.querySelectorAll('.suggestion-btn');
+
+    chatbotButton.addEventListener('click', () => {
+        chatbotWindow.classList.toggle('active');
+    });
+
+    closeChatbot.addEventListener('click', () => {
+        chatbotWindow.classList.remove('active');
+    });
+
+    const responses = {
+        "Who is Mikel?": "Mikel is a professional web developer and designer specializing in high-performance websites for businesses.",
+        "Is Mikel qualified?": "Mikel has extensive experience building custom platforms, dashboards, and landing pages with a focus on modern UX and clean code.",
+        "Can you create both Frontend and Backend?": "Yes! Mikel provides full-stack services, meaning he can handle everything from the visual design (Frontend) to the server logic and databases (Backend)."
+    };
+
+    suggestionBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const question = btn.getAttribute('data-question');
+            
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user';
+            userMsg.textContent = question;
+            chatbotMessages.appendChild(userMsg);
+
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'message bot';
+                botMsg.textContent = responses[question] || "That's a great question! Mikel can definitely help you with that.";
+                chatbotMessages.appendChild(botMsg);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }, 600);
+
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        });
+    });
 });
