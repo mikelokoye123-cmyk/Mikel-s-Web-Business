@@ -157,10 +157,14 @@ nav {
     border: none;
 }
 
+.btn-primary, .btn-primary span, .btn-primary i {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-weight: 700;
+}
+
 .btn-primary {
     background: linear-gradient(90deg, var(--primary), var(--secondary));
-    color: #ffffff !important;
-    font-weight: 700;
     box-shadow: 0 10px 20px var(--primary-glow);
 }
 
