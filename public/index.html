@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikel's Business | Professional Website Development</title>
+    <meta name="description" content="Mikel's Business offers modern, high-performance website development and design services for businesses looking to grow online.">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-mode">
+    <header>
+        <nav class="container">
+            <div class="logo">Mikel <span>Builds</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contact">Hire Me</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1 class="reveal">I build <span>modern websites</span> for businesses.</h1>
+                    <p class="reveal">Transforming your ideas into high-performance digital experiences that convert visitors into customers.</p>
+                    <div class="hero-btns reveal">
+                        <a href="#contact" class="btn btn-primary">Start a Project</a>
+                        <a href="#portfolio" class="btn btn-secondary">View Work</a>
+                    </div>
+                </div>
+                <div class="hero-image reveal">
+                    <div class="glass-card">
+                        <div class="card-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="card-body">
+                            <code class="typewriter">
+                                <span class="keyword">const</span> project = {<br>
+                                &nbsp;&nbsp;name: <span class="string">'Your Awesome Website'</span>,<br>
+                                &nbsp;&nbsp;status: <span class="string">'Ready to launch'</span>,<br>
+                                &nbsp;&nbsp;impact: <span class="string">'Maximum'</span><br>
+                                };
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Expertise & <span>Services</span></h2>
+                    <p>I specialize in building tools that help your business scale.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-code"></i></div>
+                        <h3>Web Development</h3>
+                        <p>High-performance, clean-coded websites built with the latest technologies for speed and SEO.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                        <h3>UI/UX Design</h3>
+                        <p>Beautiful, intuitive interfaces designed to wow your users and provide the best user experience.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-rocket"></i></div>
+                        <h3>Landing Pages</h3>
+                        <p>Conversion-optimized landing pages designed to turn leads into loyal paying customers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Recent <span>Projects</span></h2>
+                    <p>A showcase of some of my finest digital solutions.</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-img">
+                            <img src="assets/portfolio_coffee_shop.png" alt="Coffee Shop Project">
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Aroma Coffee</h3>
+                            <p>Luxury Landing Page</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-img">
+                            <img src="assets/portfolio_saas_dashboard.png" alt="SaaS Dashboard Project">
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Nexus Analytics</h3>
+                            <p>AI-Powered SaaS Dashboard</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-img">
+                            <img src="assets/portfolio_corporate_site.png" alt="Corporate Website Project">
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Global Consulting</h3>
+                            <p>Modern Corporate Website</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <h2>Let's <span>Work Together</span></h2>
+                        <p>Ready to take your business to the next level? Fill out the form and I'll get back to you within 24 hours.</p>
+                        <div class="contact-details">
+                            <div class="detail"><i class="fas fa-envelope"></i> mikelokoye123@gmail.com</div>
+                            <div class="detail"><i class="fas fa-location-dot"></i> Worldwide / Remote</div>
+                        </div>
+                    </div>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        <button type="submit" id="submit-btn" class="btn btn-primary">
+                            <span>Request a Website</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <div id="form-status" class="form-status"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Mikel <span>Builds</span></div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="copyright">&copy; 2026 Mikel's Business. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
