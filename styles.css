@@ -255,8 +255,6 @@ nav {
 .keyword { color: #c678dd; }
 .string { color: #98c379; }
 
-}
-
 section {
     padding: 10rem 0;
 }
@@ -316,6 +314,7 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
     justify-content: center;
+    margin-bottom: 10rem;
 }
 
 .portfolio-item {
